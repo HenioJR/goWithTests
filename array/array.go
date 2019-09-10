@@ -19,3 +19,19 @@ func SumSlices(slices ...[]int) []int {
 
 	return result
 }
+
+func SumWithoutFirst(slices ...[]int) []int {
+	var result []int
+
+	for _, v := range slices {
+		if len(v) > 0 {
+			sliceWithouFirst := v[1:]
+			result = append(result, Add(sliceWithouFirst))
+		} else {
+			result = append(result, 0)
+		}
+
+	}
+
+	return result
+}
