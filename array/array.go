@@ -9,3 +9,13 @@ func Add(numbers []int) int {
 
 	return result
 }
+
+func SumSlices(slices ...[]int) []int {
+	var result []int
+
+	for _, v := range slices {
+		result = append(result, Add(v))
+	}
+
+	return result
+}
