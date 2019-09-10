@@ -3,8 +3,8 @@ package iteration
 import "testing"
 
 func TestReapeat(t *testing.T) {
-	got := Repeat("a", 8)
-	want := "aaaaaaaa"
+	got := Repeat("a", 7)
+	want := "aaaaaaa"
 
 	if got != want {
 		t.Errorf("got '%s' want '%s'", got, want)
