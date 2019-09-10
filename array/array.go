@@ -1,6 +1,6 @@
 package array
 
-func Add(numbers [5]int) int {
+func Add(numbers []int) int {
 	result := 0
 
 	for _, number := range numbers {
