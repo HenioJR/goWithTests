@@ -8,6 +8,7 @@ type Wallet struct {
 	balance Bitcoin
 }
 
+//this interface is defined in the fmt package and lets you define how your type is printed when used with the %s format string in prints
 type Stringer interface {
 	String() string
 }
