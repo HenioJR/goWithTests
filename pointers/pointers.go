@@ -7,6 +7,8 @@ import (
 
 type Bitcoin int
 
+var ErrInsufficientFunds = errors.New("Insufficient funds to withdraw")
+
 type Wallet struct {
 	balance Bitcoin
 }
@@ -17,14 +19,14 @@ type Stringer interface {
 }
 
 //in Go, when you call a function or a method the arguments are copied
-//because of that, we need to use a pointer of real wallet
+//if you're writing a function that needs to mutate state you'll need it to take a pointer to the thing you want to change
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
 }
 
 func (w *Wallet) Withdraw(amount Bitcoin) error {
 	if amount > w.balance {
-		return errors.New("Insufficient funds to withdraw")
+		return ErrInsufficientFunds
 
 	}
 	w.balance -= amount
