@@ -1,6 +1,9 @@
 package pointers
 
-import "fmt"
+import (
+	"errors"
+	"fmt"
+)
 
 type Bitcoin int
 
@@ -17,6 +20,16 @@ type Stringer interface {
 //because of that, we need to use a pointer of real wallet
 func (w *Wallet) Deposit(amount Bitcoin) {
 	w.balance += amount
+}
+
+func (w *Wallet) Withdraw(amount Bitcoin) error {
+	if amount > w.balance {
+		return errors.New("Insufficient funds to withdraw")
+
+	}
+	w.balance -= amount
+	return nil
+
 }
 
 func (w *Wallet) Balance() Bitcoin {
