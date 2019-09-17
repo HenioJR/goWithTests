@@ -3,9 +3,9 @@ package maps
 import "testing"
 
 func TestSearch(t *testing.T) {
-	dictionary := map[string]string{"book": "livro"}
+	dictionary := Dictionary{"book": "livro"}
 
-	got := Search(dictionary, "book")
+	got := dictionary.Search("book")
 	want := "livro"
 
 	if got != want {
