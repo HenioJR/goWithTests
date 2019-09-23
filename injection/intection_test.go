@@ -7,7 +7,7 @@ import (
 
 func TestSalute(t *testing.T) {
 
-	//type buffer of package bytes implements the interface Writer
+	//type buffer of bytes package implements the interface Writer
 	buffer := bytes.Buffer{}
 
 	Salute(&buffer, "Chris")
