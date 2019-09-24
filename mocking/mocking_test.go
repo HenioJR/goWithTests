@@ -1,17 +1,22 @@
-package mocking
+package main
 
 import (
 	"bytes"
 	"testing"
 )
 
-func TestCounting(t *testing.T) {
+func TestCountdown(t *testing.T) {
 	buffer := &bytes.Buffer{}
 
-	Counting(buffer)
+	Countdown(buffer)
 
 	got := buffer.String()
-	want := "3"
+
+	//create a string with a single quote allows line break
+	want := `3
+2
+1
+Go!`
 
 	if got != want {
 		t.Errorf("got '%s' want '%s'", got, want)
